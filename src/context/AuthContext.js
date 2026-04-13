@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(user));
       return { success: true };
     } catch (error) {
-      return { success: false, message: error.response?.data?.message || 'Login failed' };
+      return { success: false, message: error.response?.data?.message || error.message || 'Login failed' };
     }
   };
 
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
       await axios.post('/register', { username, password });
       return { success: true };
     } catch (error) {
-      return { success: false, message: error.response?.data?.message || 'Registration failed' };
+      return { success: false, message: error.response?.data?.message || error.message || 'Registration failed' };
     }
   };
 
