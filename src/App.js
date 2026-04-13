@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import axios from 'axios';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider, useCart } from './context/CartContext';
 import ProductList from './components/ProductList';
@@ -9,6 +10,9 @@ import Checkout from './components/Checkout';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProductUpload from './components/ProductUpload';
+
+// Set the global API base URL to connect to Render or Localhost effortlessly
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
