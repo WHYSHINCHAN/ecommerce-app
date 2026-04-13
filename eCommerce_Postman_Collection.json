@@ -1,0 +1,61 @@
+{
+  "info": {
+    "name": "eCommerce Fullstack API",
+    "description": "Collection mapping the authentication endpoints and fakeStore API endpoints for the eCommerce app.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"securepassword\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["register"] }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"securepassword\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["login"] }
+      }
+    },
+    {
+      "name": "Fetch Products (FakeStore)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "https://fakestoreapi.com/products", "protocol": "https", "host": ["fakestoreapi", "com"], "path": ["products"] }
+      }
+    },
+    {
+      "name": "Upload Media",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer YOUR_JWT_TOKEN" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "image", "type": "file", "src": [] }
+          ]
+        },
+        "url": { "raw": "http://localhost:5000/upload", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["upload"] }
+      }
+    }
+  ]
+}
